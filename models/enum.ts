@@ -16,6 +16,7 @@ enum Enum_FaseProyecto{
     iniciado= 'Iniciado',
     desarrollo='Desarrollo',
     terminado='Terminado',
+    nula='',
 }
 enum Enum_EstadoInscripcion{
     aceptada= 'Aceptada',
@@ -26,4 +27,4 @@ enum Enum_TipoObjetivo{
     especifico='Especifico',
 }
 
-export {Enum_Rol,Enum_EstadoUsuario};
+export {Enum_Rol,Enum_EstadoUsuario,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo};

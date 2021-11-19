@@ -8,5 +8,22 @@ enum Enum_EstadoUsuario{
     autorizado='Autorizado',
     no_autorizado='No autorizado',
 }
+enum Enum_EstadoProyecto{
+    activo= 'Activo',
+    inactivo='Inactivo',
+}
+enum Enum_FaseProyecto{
+    iniciado= 'Iniciado',
+    desarrollo='Desarrollo',
+    terminado='Terminado',
+}
+enum Enum_EstadoInscripcion{
+    aceptada= 'Aceptada',
+    rechazada='Rechazada',
+}
+enum Enum_TipoObjetivo{
+    general= 'General',
+    especifico='Especifico',
+}
 
 export {Enum_Rol,Enum_EstadoUsuario};

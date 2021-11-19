@@ -6,7 +6,7 @@ const main=async() =>{
     await conectarBD();
     // codigo para crear los usuarios
    await userModel.create({
-        correo: 'cccoa.rsrsr@com',
+        correo: 'micorreo@algo.com',
         identificacion: '113',
         nombre: 'Julian',
         apellido: 'Lopez',

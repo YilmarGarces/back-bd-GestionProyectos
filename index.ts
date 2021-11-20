@@ -5,17 +5,7 @@ import {Enum_Rol,Enum_EstadoUsuario} from "./models/enum";
 
 const main=async() =>{
     await conectarBD();
-    // CRUD PROYECTOS
-    ProjectModel.create({
-        nombre:"Proyecto 1",
-        presupuesto:120,
-        fechaInicio:Date.now(),
-        fechaFin: new Date("2022/11/10"),
-    })
-}
-main();
-
-// CRUD USUARIOS
+    // CRUD USUARIOS
 //    await userModel.create({
 //         correo: 'micorreo@algo.com',
 //         identificacion: '113',
@@ -27,13 +17,13 @@ main();
 //     }).catch((e=>{
 //         console.error('error creando el usuario',e);
 //     }));
-
-    // codigo para realizar consulta a base de datos y traer todos los usuarios existentes
-    // await userModel.find().then(u=>{
-    //     console.log("usuarios",u);
-    // }).catch(e=>{
-    //     console.error("error obteniendo los usuarios",e);
-    // });
+    
+    codigo para realizar consulta a base de datos y traer todos los usuarios existentes
+    await userModel.find().then(u=>{
+        console.log("usuarios",u);
+    }).catch(e=>{
+        console.error("error obteniendo los usuarios",e);
+    });
 
     // consulta a base de datos para obtener un dato de un usuario en especifico
     // await userModel.findOne({identificacion:'1234567'}).then(u=>{
@@ -56,3 +46,8 @@ main();
     // }).catch((e=>{
     //     console.error('error eliminando el usuario',e);
     // }));
+}
+main();
+
+
+

@@ -1,21 +1,32 @@
 import conectarBD from "./db/db";
 import {userModel} from "./models/user";
+import {ProjectModel} from "./models/Proyecto";
 import {Enum_Rol,Enum_EstadoUsuario} from "./models/enum";
 
 const main=async() =>{
     await conectarBD();
-    // codigo para crear los usuarios
-   await userModel.create({
-        correo: 'micorreo@algo.com',
-        identificacion: '113',
-        nombre: 'Julian',
-        apellido: 'Lopez',
-        rol:Enum_Rol.administrador,        
-    }).then((u)=>{
-        console.log('usuario creado',u);
-    }).catch((e=>{
-        console.error('error creando el usuario',e);
-    }));
+    // CRUD PROYECTOS
+    ProjectModel.create({
+        nombre:"Proyecto 1",
+        presupuesto:120,
+        fechaInicio:Date.now(),
+        fechaFin: new Date("2022/11/10"),
+    })
+}
+main();
+
+// CRUD USUARIOS
+//    await userModel.create({
+//         correo: 'micorreo@algo.com',
+//         identificacion: '113',
+//         nombre: 'Julian',
+//         apellido: 'Lopez',
+//         rol:Enum_Rol.administrador,        
+//     }).then((u)=>{
+//         console.log('usuario creado',u);
+//     }).catch((e=>{
+//         console.error('error creando el usuario',e);
+//     }));
 
     // codigo para realizar consulta a base de datos y traer todos los usuarios existentes
     // await userModel.find().then(u=>{
@@ -45,6 +56,3 @@ const main=async() =>{
     // }).catch((e=>{
     //     console.error('error eliminando el usuario',e);
     // }));
-
-}
-main();

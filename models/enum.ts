@@ -27,4 +27,4 @@ enum Enum_TipoObjetivo{
     especifico='Especifico',
 }
 
-export {Enum_Rol,Enum_EstadoUsuario,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo};
+export {Enum_Rol,Enum_EstadoUsuario,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo,Enum_EstadoInscripcion};

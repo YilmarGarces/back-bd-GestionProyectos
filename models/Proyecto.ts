@@ -27,16 +27,15 @@ const projectSchema = new Schema<Proyecto> ({
         required:true,
     },
     estado:{
-        type:Date,
-        required:true,
+        type:String,    
+        enum:Enum_EstadoProyecto,    
         default:Enum_EstadoProyecto.inactivo,
     },
     fase:{
-        type:Date,
-        required:true,
+        type:String,
+        enum:Enum_FaseProyecto,
         default:Enum_FaseProyecto.nula,
-    }
-
+    },
 }
 );
 

@@ -18,7 +18,7 @@ const main=async() =>{
 //         console.error('error creando el usuario',e);
 //     }));
     
-    codigo para realizar consulta a base de datos y traer todos los usuarios existentes
+    //codigo para realizar consulta a base de datos y traer todos los usuarios existentes
     await userModel.find().then(u=>{
         console.log("usuarios",u);
     }).catch(e=>{

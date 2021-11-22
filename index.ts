@@ -89,7 +89,7 @@ const consultaProyectosConObjetivos2 =async () =>{
 // metodologia uno a muchos cuando hay pocos registros en el lado que tiene el muchos #3 
 const main=async() =>{
     await conectarBD();
-<<<<<<< HEAD
+
     const userini = await userModel.create({
         correo: 'micorreo@algo.com',
         identificacion: '113',

@@ -1,5 +1,6 @@
 import { Schema,model } from "mongoose";
-import {Enum_TipoObjetivo} from "./enum"
+import {Enum_TipoObjetivo} from "./enum";
+import {ProjectModel} from "./Proyecto"
 
 interface Objetivo{
     descripcion: string;
@@ -13,8 +14,10 @@ const objetSchema=new Schema<Objetivo>({
     tipo:{
         type:String,
         enum:Enum_TipoObjetivo,
+        required:true,
     }
+
 });
-const objetModel=model('Objetivo',objetSchema,'ColeccionObjetivos');
-export {objetModel};
+const ObjectiveModel=model('Objectiv',objetSchema);
+export {ObjectiveModel};
 

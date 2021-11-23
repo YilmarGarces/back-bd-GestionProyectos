@@ -24,8 +24,15 @@ const resolvers = {
             return usuarioCreado;
         },
         eliminarUsuario: async (parent,args) =>{
-            const usuarioEliminado = await userModel.findOneAndDelete({_id:args._id});
-            return usuarioEliminado;
+            if(Object.keys(args).includes('_id')){
+                const usuarioEliminado = await userModel.findOneAndDelete({_id:args._id});
+                return usuarioEliminado;
+            }else if(Object.keys(args).includes('correo')){
+                const usuarioEliminado = await userModel.findOneAndDelete({correo:args.correo});
+                return usuarioEliminado;
+            },
+            
+            
         },
     },  
 };

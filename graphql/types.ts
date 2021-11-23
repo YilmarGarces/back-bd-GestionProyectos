@@ -35,7 +35,7 @@ type Mutation{
         estado:Enum_EstadoUsuario
         rol:Enum_Rol!
     ):Usuario
-    eliminarUsuario(_id:String!):Usuario
+    eliminarUsuario(_id:String! correo:String):Usuario
 }
 `;
 export {typeDefs};

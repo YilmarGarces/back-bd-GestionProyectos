@@ -1,6 +1,7 @@
 import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
+scalar Date
 enum Enum_EstadoUsuario{
     PENDIENTE
     AUTORIZADO 
@@ -10,6 +11,24 @@ enum Enum_Rol{
     ESTUDIANTE
     LIDER
     ADMINISTRADOR
+}
+enum Enum_EstadoProyecto{
+    ACTIVO
+    INACTIVO
+}
+enum Enum_FaseProyecto{
+    INICIADO
+    DESARROLLO
+    TERMINADO
+    NULO
+}
+enum Enum_EstadoInscripcion{
+    ACEPTADA
+    RECHAZADA
+}
+enum Enum_TipoObjetivo{
+    GENERAL
+    ESPECIFICO
 }
 
 type Usuario {
@@ -22,8 +41,33 @@ type Usuario {
     rol:Enum_Rol!
 }
 
+type Objetivo {
+    _id: ID!
+    descripcion: String!
+    tipo: Enum_TipoObjetivo!
+  }
+
+  input crearObjetivo {
+    descripcion: String!
+    tipo: Enum_TipoObjetivo!
+  }
+
+  type Proyecto {
+    _id: ID!
+    nombre: String!
+    presupuesto: Float!
+    fechaInicio: Date!
+    fechaFin: Date!
+    estado: Enum_EstadoProyecto!
+    fase: Enum_FaseProyecto!
+    lider: Usuario!
+    objetivos: [Objetivo]
+  }
+
 type Query {
-    Usuarios:[Usuario] 
+    Usuarios:[Usuario]
+    Usuario(_id:String!):Usuario
+    Proyectos:[Proyecto]
 }
 
 type Mutation{
@@ -35,7 +79,38 @@ type Mutation{
         estado:Enum_EstadoUsuario
         rol:Enum_Rol!
     ):Usuario
+    editarUsuario(
+        _id:String!
+        nombre:String!
+        apellido:String!
+        identificacion:String!
+        correo:String!
+        estado:Enum_EstadoUsuario
+        rol:Enum_Rol!
+    ):Usuario
     eliminarUsuario(_id:String! correo:String):Usuario
+    crearProyecto(        
+        nombre: String!
+        presupuesto: Float!
+        fechaInicio: Date!
+        fechaFin: Date!
+        estado: Enum_EstadoProyecto!
+        fase: Enum_FaseProyecto!
+        lider: Usuario!
+        objetivos: [Objetivo]
+    ):Proyecto
+    editarProyecto(
+        _id:String!
+        nombre: String!
+        presupuesto: Float!
+        fechaInicio: Date!
+        fechaFin: Date!
+        estado: Enum_EstadoProyecto!
+        fase: Enum_FaseProyecto!
+        lider: Usuario!
+        objetivos: [Objetivo]
+    ):Proyecto
+    eliminarProyecto(_id:String! correo:String):Proyecto
 }
 `;
 export {typeDefs};

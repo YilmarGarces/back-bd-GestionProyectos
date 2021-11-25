@@ -16,7 +16,7 @@ enum Enum_FaseProyecto{
     INICIADO= 'INICIADO',
     DESARROLLO='EN_DESARROLLO',
     TERMINADO='TERMINADO',
-    NULA='',
+    NULO='',
 }
 enum Enum_EstadoInscripcion{
     ACEPTADA= 'ACEPTADA',

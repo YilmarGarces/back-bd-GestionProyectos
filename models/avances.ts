@@ -33,5 +33,5 @@ const avanceSchema= new Schema<avance>({
         required:true,
     }
 });
-const avanceModel=model('Adancement',avanceSchema,'ColeccionAvances');
+const avanceModel=model('Advancement',avanceSchema);
 export {avanceModel};

@@ -108,7 +108,7 @@ type Mutation{
         estado: Enum_EstadoProyecto!
         fase: Enum_FaseProyecto!
         lider: Usuario!
-        objetivos: [Objetivo]
+        objetivos: [crearObjetivo]
     ):Proyecto
     eliminarProyecto(_id:String! correo:String):Proyecto
 }

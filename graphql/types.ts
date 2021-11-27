@@ -3,6 +3,7 @@ import {tiposEnums} from "../models/enums/tipos";
 import {tiposUsuario} from "../models/usuarios/tipos";
 import {tiposProyecto} from "../models/proyecto/tipos";
 import { tiposAvance } from "../models/avance/tipos";
+// import {tiposInscripcion} from "../models/inscripcion/tipos";
 
 
 const tiposGlobales = gql`

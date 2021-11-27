@@ -1,24 +1,29 @@
-import { Query } from "mongoose";
-import { avanceModel } from "./avance";
+import { ModeloAvance } from './avance';
 
-const resolversAvance={
-    Query:{
-        Avances: async (parent,args) =>{
-            const avances = await avanceModel.find();
-            return avances;
-        }
-
+const resolversAvance = {
+  Query: {
+    Avances: async (parent, args) => {
+      const avances = await ModeloAvance.find().populate('proyecto').populate('creadoPor');
+      return avances;
     },
-    Mutation:{
-        crearAvance:async (parent, args) =>{
-            const avanceCreado =avanceModel.create({
-                fecha: args.fecha,
-                descripcion: args.descripcion,
-                proyecto: args.proyecto,
-                creadoPor: args.creadoPor,
-            });
-            return avanceCreado;
-        }
+    filtrarAvance: async (parents, args) => {
+      const avanceFiltrado = await ModeloAvance.find({ proyecto: args._id })
+        .populate('proyecto')
+        .populate('creadoPor');
+      return avanceFiltrado;
     },
+  },
+  Mutation: {
+    crearAvance: async (parents, args) => {
+      const avanceCreado = ModeloAvance.create({
+        fecha: args.fecha,
+        descripcion: args.descripcion,
+        proyecto: args.proyecto,
+        creadoPor: args.creadoPor,
+      });
+      return avanceCreado;
+    },
+  },
 };
-export {resolversAvance};
+
+export { resolversAvance };

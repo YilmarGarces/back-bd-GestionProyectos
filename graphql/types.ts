@@ -97,20 +97,8 @@ type Mutation{
         estado: Enum_EstadoProyecto!
         fase: Enum_FaseProyecto!
         lider: Usuario!
-        objetivos: [Objetivo]
-    ):Proyecto
-    editarProyecto(
-        _id:String!
-        nombre: String!
-        presupuesto: Float!
-        fechaInicio: Date!
-        fechaFin: Date!
-        estado: Enum_EstadoProyecto!
-        fase: Enum_FaseProyecto!
-        lider: Usuario!
         objetivos: [crearObjetivo]
     ):Proyecto
-    eliminarProyecto(_id:String! correo:String):Proyecto
 }
 `;
 export {typeDefs};

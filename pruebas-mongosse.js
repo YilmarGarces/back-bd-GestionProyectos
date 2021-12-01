@@ -1,8 +1,8 @@
 import conectarBD from "./db/db";
-import {userModel} from "./models/usuarios/usuario";
-import {ProjectModel} from "./models/proyecto/proyecto";
-import {ObjectiveModel} from "./models/objetivos";
-import {Enum_Rol,Enum_EstadoUsuario,Enum_TipoObjetivo} from "./models/enums/enum";
+import {userModel} from "./models/usuarios/usuario.js";
+import {ProjectModel} from "./models/proyecto/proyecto.js";
+import {ObjectiveModel} from "./models/objetivos.js";
+import {Enum_Rol,Enum_EstadoUsuario,Enum_TipoObjetivo} from "./models/enums/enum.js";
 // metodologia de uno a muchos poniendo la atencion en la tabla que tiene el muchos #1 para bd relacionales
 const crearProyectoConObjetivos1 =async () =>{
     const userini = await userModel.create({

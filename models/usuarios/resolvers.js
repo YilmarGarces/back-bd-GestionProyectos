@@ -34,7 +34,8 @@ const resolversUsuarios = {
                 correo:args.correo,
                 rol:args.rol,
                 estado:args.estado,
-            });
+            },
+            { new: true }      );
             return UsuarioEditado;
         },
         eliminarUsuario: async (parent,args) =>{

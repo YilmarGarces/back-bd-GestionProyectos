@@ -19,8 +19,8 @@ type Usuario {
     apellido:String!
     identificacion:String!
     correo:String!
-    estado:Enum_EstadoUsuario
-    rol:Enum_Rol!
+    estado:Enum_EstadoUsuario!
+    rol:Enum_Rol
 }  
 
 type Query {

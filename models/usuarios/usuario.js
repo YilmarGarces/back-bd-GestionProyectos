@@ -22,6 +22,10 @@ const userSchema = new Schema ({
             message:'El formato del correo esta mal, rectificalo',
         },
     },
+    password:{
+      type:String,
+      required: true,
+    },
     identificacion: {
         type:String,
         required:true,

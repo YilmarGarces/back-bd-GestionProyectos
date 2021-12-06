@@ -19,8 +19,8 @@ type Usuario {
     apellido:String!
     identificacion:String!
     correo:String!
-    estado:Enum_EstadoUsuario!
-    rol:Enum_Rol
+    estado:Enum_EstadoUsuario
+    rol:Enum_Rol!
 }  
 
 type Query {
@@ -43,8 +43,8 @@ type Mutation{
         apellido:String!
         identificacion:String!
         correo:String!
-        estado:Enum_EstadoUsuario!
-        rol:Enum_Rol
+        estado:Enum_EstadoUsuario
+        rol:Enum_Rol!
     ):Usuario
     eliminarUsuario(_id:String! correo:String):Usuario
     

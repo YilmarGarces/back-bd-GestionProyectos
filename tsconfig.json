@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
-        "module": "CommonJs",
-        "esModuleInterop":true
+      "baseUrl": "src",
+      "paths": {
+        "*": ["src/*"]
+      }
     }
-}
+  }

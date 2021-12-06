@@ -1,6 +1,9 @@
-import mongoose from 'mongoose'; 
-import { userModel } from '../usuarios/usuario.js';
+import mongoose from 'mongoose';
+// import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from '../enums/enums.js';
+import { ObjectiveModel } from '../objective.js';
+import { UserModel } from '../usuario/usuario.js';
 const { Schema, model } = mongoose;
+
 // interface Proyecto {
 //   nombre: string;
 //   presupuesto: number;
@@ -43,7 +46,7 @@ const projectSchema = new Schema(
     lider: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: userModel,
+      ref: UserModel,
     },
     objetivos: [
       {

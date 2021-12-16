@@ -14,7 +14,6 @@ const { Schema, model } = mongoose;
 //   lider: Schema.Types.ObjectId;
 //   objetivos: [{ descripcion: String; tipo: Enum_TipoObjetivo }];
 // }
-
 const projectSchema = new Schema(
   {
     nombre: {
@@ -79,6 +78,7 @@ projectSchema.virtual('inscripciones', {
   localField: '_id',
   foreignField: 'proyecto',
 });
+
 
 const ProjectModel = model('Proyecto', projectSchema);
 

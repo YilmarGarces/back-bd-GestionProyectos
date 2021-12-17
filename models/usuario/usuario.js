@@ -20,8 +20,19 @@ const userSchema = new Schema({
       validator: (email) => {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
       },
+      // (email) => {
+      //   if (email.includes('@') && email.includes('.')) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // },
       message: 'El formato del correo electrónico está malo.',
     },
+  },
+  password: {
+    type: String,
+    required: true,
   },
   identificacion: {
     type: String,
@@ -36,10 +47,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
+  
   rol: {
     type: String,
     required: true,
@@ -52,5 +60,24 @@ const userSchema = new Schema({
   },
 });
 
+userSchema.virtual('proyectosLiderados', {
+  ref: 'Proyecto',
+  localField: '_id',
+  foreignField: 'lider',
+});
+
+userSchema.virtual('avancesCreados', {
+  ref: 'Avance',
+  localField: '_id',
+  foreignField: 'creadoPor',
+});
+
+userSchema.virtual('inscripciones', {
+  ref: 'Inscripcion',
+  localField: '_id',
+  foreignField: 'estudiante',
+});
+
 const UserModel = model('User', userSchema);
+
 export { UserModel };

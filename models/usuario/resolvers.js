@@ -14,6 +14,14 @@ const resolversUsuario = {
     },
   },
   Mutation: {
+    editarPerfil: async (parent, args) => {
+      const usuarioEditado = await UserModel.findOneAndUpdate(
+        args._id,
+        { ...args.campos },
+        { new: true }
+      );
+      return usuarioEditado;
+    },
     crearUsuario: async (parent, args) => {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(args.password, salt);

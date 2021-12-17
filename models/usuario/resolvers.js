@@ -2,11 +2,7 @@ import { UserModel } from './usuario.js';
 import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
-  Usuario: {
-    inscripciones: async (parent, args, context) => {
-      return InscriptionModel.find({ estudiante: parent._id });
-    },
-  },
+ 
   Query: {
     Usuarios: async (parent, args) => {
       const usuarios = await UserModel.find();

@@ -2,27 +2,23 @@ import jwt from 'jsonwebtoken';
 
 const validateToken = (token) => {
   if (token) {
-    const verification = jwt.verify(token, 'secret', (err, data) => {
-      if (data) {
-        return {
-          data: data,
-        };
-      }
-      if (err) {
-        return {
-          error: err,
-        };
-      }
+    const ver = jwt.verify(token,process.env.JWT_SECRET, (err, data) => {
+      return data;
     });
-    console.log(verification, token);
-    return verification;
+    return ver;
+  } else {
+    return null;
   }
 };
 
 const generateToken = (payload) => {
-  return jwt.sign(payload, 'secret', {
+  if (payload.iat) {
+    delete payload.iat;
+    delete payload.exp;
+  }
+  return jwt.sign(payload,process.env.JWT_SECRET, {
     expiresIn: '24h',
   });
 };
 
-export { generateToken, validateToken };
+export { validateToken, generateToken };

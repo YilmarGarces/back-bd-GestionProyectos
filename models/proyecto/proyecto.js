@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 // import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from '../enums/enums.js';
+import { ObjectiveModel } from '../objective.js';
 import { UserModel } from '../usuario/usuario.js';
 const { Schema, model } = mongoose;
 

@@ -1,34 +1,18 @@
-import { InscriptionModel } from '../inscripcion/inscripcion.js';
-import { UserModel } from '../usuario/usuario.js';
 import { ProjectModel } from './proyecto.js';
 
 const resolversProyecto = {
-  Proyecto: {
-    lider: async (parent, args, context) => {
-      const usr = await UserModel.findOne({
-        _id: parent.lider.toString(),
-      });
-      return usr;
-    },
-    inscripciones: async (parent, args, context) => {
-      const inscripciones = await InscriptionModel.find({
-        proyecto: parent._id,
-      });
-      return inscripciones;
-    },
-  },
   Query: {
     Proyectos: async (parent, args, context) => {
       if (context.userData) {
         if (context.userData.rol === 'LIDER') {
           const proyectos = await ProjectModel.find({ lider: context.userData._id });
           return proyectos;
-        } else if (context.userData.rol === 'LIDER') {
-          // const proyectos = await ProjectModel.find({ lider: context.userData._id });
-          // return proyectos;
+        } else if (context.userData.rol === 'ADMINISTRADOR') {
+          const proyectos = await ProjectModel.find();
+          return proyectos;
         }
       }
-      const proyectos = await ProjectModel.find();
+      // const proyectos = await ProjectModel.find();
       return proyectos;
     },
   },
@@ -45,15 +29,12 @@ const resolversProyecto = {
       return proyectoCreado;
     },
     editarProyecto: async (parent, args) => {
-      const proyectoEditado = await ProjectModel.findByIdAndUpdate(
-        args._id,
-        { ...args.campos },
+      const proyectoEditado = await ProjectModel.findByIdAndUpdate(args._id,{ ...args.campos },
         { new: true }
       );
-
       return proyectoEditado;
     },
-    crearObjetivo: async (parent, args) => {
+     crearObjetivo: async (parent, args) => {
       const proyectoConObjetivo = await ProjectModel.findByIdAndUpdate(
         args.idProyecto,
         {
@@ -96,4 +77,4 @@ const resolversProyecto = {
   },
 };
 
-export { resolversProyecto }; 
+export { resolversProyecto };

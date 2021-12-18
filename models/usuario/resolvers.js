@@ -2,13 +2,13 @@ import { UserModel } from './usuario.js';
 import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
- 
+  
   Query: {
     Usuarios: async (parent, args) => {      
       const usuarios = await UserModel.find({ ...args.filtro });
       return usuarios;
     },
-    Usuario: async (parent, args) => {
+    Usuario: async (parent, args,context) => {
       const usuario = await UserModel.findOne({ _id: args._id });
       return usuario;
     },

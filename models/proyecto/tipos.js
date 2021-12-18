@@ -6,6 +6,7 @@ const tiposProyecto = gql`
     descripcion: String!
     tipo: Enum_TipoObjetivo!
   }
+
   input crearObjetivo {
     descripcion: String!
     tipo: Enum_TipoObjetivo!
@@ -36,18 +37,19 @@ const tiposProyecto = gql`
     avances: [Avance]
     inscripciones: [Inscripcion]
   }
-  type Query {
-    Proyectos: [Proyecto]
-  }
+
+  type Query {Proyectos: [Proyecto]}
+
   type Mutation {
     crearProyecto(
       nombre: String!
       presupuesto: Float!
       fechaInicio: Date!
-      fechaFin: Date!
+      fechaFin: Date!      
       lider: String!
       objetivos: [crearObjetivo]
     ): Proyecto
+
     editarProyecto(_id: String!, campos: camposProyecto!): Proyecto
     crearObjetivo(idProyecto: String!, campos: camposObjetivo!): Proyecto
     editarObjetivo(idProyecto: String!, indexObjetivo: Int!, campos: camposObjetivo!): Proyecto

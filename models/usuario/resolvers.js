@@ -5,15 +5,9 @@ const resolversUsuario = {
  
   Query: {
     Usuarios: async (parent, args) => {
-      
-      if (context.userData) {
-        if (context.userData.rol === 'LIDER') {
-          const usuarios = await UserModel.find({ ...args.filtro });
+        const usuarios = await UserModel.find({ ...args.filtro });
           return usuarios;
-        } else if (context.userData.rol === 'ADMINISTRADOR') {
-          const usuarios = await UserModel.find();
-          return usuarios;
-        }
+
       }
       
     },
